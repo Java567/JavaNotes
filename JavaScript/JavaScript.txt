@@ -1,0 +1,31 @@
+JavaScript
+
+1、什么是JavaScript，有什么用？
+   JavaScript是运行在游览器上的脚本语言。简称JS.
+   JavaScript是网景公司(NetScape)的布兰登艾奇(JavaScript之父)开发的，最初叫LiveScript。
+   JavaScript的出现让游览器更加的生动了，不再是单纯的静态页面了。页面更具有交互性。
+   在历史的某个阶段，SUM公司和网景公司他们之间有合作关系，SUM公司把LiveScript名字修改为JavaScript。
+   JavaScript这个名字虽然带有“Java”但是和Java没有任何关系，只是语法上优点类似。他们运行的位置不同，Java运行在JVM中，JavaScript运行在游览器的内存当中。
+   
+   JavaScript程序不需要我们程序员手动编译，编写完代码之后，游览器直接打开解释执行。
+   JavaScript的“目标程序”以文本形式保存这种语言都叫做“脚本语言”。
+   Java的目标程序已.class形式存在，不能使用文本编译器打开，不是脚本语言。
+
+   网景公司1998年被美国在线收购。
+   网景公司最著名的就是领航者游览器：Navigator游览器。
+   LiveScript的出现，最初的时候是为Navigator游览器量身定做了一门语言，不支持其他游览器。
+   当Navigatory游览器使用非常广泛的时候，微软害怕了，于是微软在最短的时间内组建了一个团队,开始研发支持IE游览器的脚本语言，叫做JScript.
+   JavaScript和JScript并存的时代，程序员是很痛苦的，因为程序员要写两套程序。
+   在这种情况下，有一个非营利性组织出来了，叫做EXMA组织（欧洲计算机协会）
+   ECMA根据JavaScript制定了ECMA-262号标准，叫做ECMA-Script
+   现代的JavaScript和JScript都实现了ECMA-Script规范（JavaScript和JScript统一了）
+
+   JSP和JS有什么区别？
+   JSP：JavaServer Pages(隶属于Java语言的，运行在JVM中)
+   JS:JavaScript(运行在游览器上)
+
+
+
+
+
+

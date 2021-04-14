@@ -1,0 +1,27 @@
+1、回顾mybatis的自定义再分析和环境搭建+完善基于注解的mybatis
+2、mybatis的crud
+   mybatis基于代理Dao的CRUD操作
+
+3、mybatis中的参数深入及结果集的深入
+   CRUD中可能遇到的问题：参数的传递以及返回值的封装
+4、mybatis中基于传统dao的方式(编写dao的实现类)---了解的内容
+5、mybatis中的配置(主配置文件：SqlMapConfig.xml)
+     properties标签
+     typeAliases标签  --------解释Interge 的写法
+     mappers标签的子标签：package
+
+
+------------------------------------
+mybatis使用OGNL表达式解析对象字段的值，#{}或者${}括号中的值为pojo（我们的实体类）属性名称
+
+OGNL表达式：
+        Object Graphic Navigation Language
+         对象    图       导航      语言
+
+
+         他是通过对象的取值方法来获取数据，在写法上把get给省略了
+         比如：我们获取用户的名称
+                类中的写法：user.getUsername
+                OGNL表达式写法：user.username
+         mybatis中为什么能直接写username，而不用user.呢
+                因为在parameterType中已经提供属性所属的类，此时不需要写对象名    

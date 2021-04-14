@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="day03_eesy_05jndi:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>day03_eesy_05jndi</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="day03_eesy_05jndi.war">
+      <element id="artifact" artifact-name="day03_eesy_05jndi:war exploded" />
+    </root>
+  </artifact>
+</component>

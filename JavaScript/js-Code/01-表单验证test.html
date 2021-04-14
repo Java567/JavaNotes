@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>表单验证</title>
+</head>
+
+<body>
+	<script type="text/javascript">
+	   window.onload=function(){
+		   //用户名
+		   document.getElementById("username").onblur=function(){
+			   var username=document.getElementById("username").value;
+			   var usernameRegExp=/^[A-Za-z0-9]{6,14}$/;
+			   var ok=usernameRegExp.test(username);
+			   if(ok||username==null){
+				   //合法
+				   document.getElementById("UsernameError").innerText="用户名合法";
+			   }else{
+				   //不合法
+				   document.getElementById("UsernameError").innerText="用户名不合法";
+			   }
+			   //给文本框绑定focus
+			   document.getElementById("username").onfocus=function(){
+				    document.getElementById("UsernameError").innerText="";
+			   }
+		   }
+		   
+		   //密码
+		   document.getElementById("password2").onblur=function(){
+			   var password1=document.getElementById("password1").value;
+			   var password2=document.getElementById("password2").value;
+			   if(password1==password2){
+				   document.getElementById("password2Error").innerText="密码一致";
+			   }else{
+				   document.getElementById("password2Error").innerText="密码不一致";
+			   }
+			   //给文本框绑定focus
+			document.getElementById("password2").onfocus=function(){
+				document.getElementById("password2Error").innerText="";
+			}
+			
+			
+			//邮箱验证
+			document.getElementById("email").onblur=function(){
+				var email=document.getElementById("email").value;
+				var emailRegExp=/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+				var ok=emailRegExp.test(email);
+				if(ok){
+					//合法
+					document.getElementById("emailError").innerText="邮箱格式正确";
+				}else{
+					//不合法
+					document.getElementById("emailError").innerText="邮箱格式错误";
+				}
+				//给文本框绑定focus
+				document.getElementById("email").onfocus=function(){
+					document.getElementById("emailError").innerText="";
+				}
+			}
+			
+			
+			// 提交验证
+			document.getElementById("submit").onclick=function(){
+				var usernametest=document.getElementById("UsernameError").innerText;
+				var passwordtest=document.getElementById("password2Error").innerText;
+				var emailtest=document.getElementById("emailError").innerText;
+				if(usernametest=="用户名合法"&&passwordtest=="密码一致"&&emailtest=="邮箱格式正确"){
+					alert("提交成功");
+				}else{
+					alert("提交失败");
+				}
+			}
+		   }
+	   }
+	</script>
+	用户名：
+	<input type="text" id="username" />
+	<span id="UsernameError" style="color: red; font-size:12px;"></span>
+	<br>
+	密码：
+	<input type="text" id="password1" />
+	<br>
+	验证密码：
+	<input type="text" id="password2" />
+	<span id="password2Error" style="color: red; font-size:12px;"></span>
+	<br>
+	邮箱：
+	<input type="text" id="email" />
+	<span id="emailError" style="color: red; font-size:12px;"></span>
+	<br>
+	提交：
+	<input type="button" value="提交" id="submit" />
+	<span id="submitError" style="color: red; font-size:12px;"></span>
+	
+</body>
+</html>
+<!--
+   表单验证：
+     1）用户名不能为空
+     2）用户名必须在6-14位之间
+     3）用户名只能有数字和字母组成，不能含有其他符号(正则表达式)
+     4）密码和确认密码一致，邮箱地址合法
+     5）统一失去焦点验证
+     6）错误提示信息统一在span标签中提示，并且要求字体12号，红色
+     7）文本再次获得焦点后，清空错误信息，如果文本框中的数据不合法要求清空文本框的value
+     8) 最终表单中所有项均合法方可提交
+-->

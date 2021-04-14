@@ -1,0 +1,26 @@
+docker
+    run 运行容器
+	    -it 以交互的形式运行容器
+		
+
+交互的方式进入容器
+run 交互的方式启动容器
+
+与运行环境无关 
+     真正做到一次构建，到处运行。
+
+InnoDB  支持事务 效率会降低
+MyISAM  取消引擎
+
+互联网企业转型  互联网的开发技能  分布式系统  数据库分布式  第三方
+
+支持原生分布式  8.0 MySQL 支持原生分布式数据库解决问题的
+
+5.7 支持 NoSQL 效率方面是比之前版本快的
+
+
+docker run -p 3306:3306 --name mysql \
+-v /usr/local/docker/mysql/logs:/var/log/mysql \
+-v /usr/local/docker/mysql/data:/var/lib/mysql \
+-e MYSQL_ROOT_PASSWORD=123456 \
+-d mysql:5.7.22

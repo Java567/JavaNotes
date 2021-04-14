@@ -1,0 +1,40 @@
+1、什么是API？包括什么？
+       -API：
+           应用程序编程接口（这里所描述的接口，不是interface)
+       -API包括：
+           源码、字节码、帮助文档【在使用的时候注意版本号一致】
+       
+2、什么是JAVASE？
+         -Java 标准版本
+         -SUN公司为java程序员提供的一套基础类库
+         -这套基础类库包括：基础语法、面向对象、异常、IO、集合、反射...
+         -JavaSE版本：
+                目前javaSE由Oracle维护，最高版本javaSE9
+
+3、JavaSE的源码、字节码、帮助文档在哪里？
+         -JAVA_HOME\src.zip...源码
+         -JRE_HOME\LIB\RT.JAR...字节码
+         -帮助文档（未知）
+
+4、什么是JavaEE?
+         -java企业版
+         -SUN公司为java程序员准备另一套庞大的类库，帮助程序员完成企业级项目开发。
+
+5、javaEE的版本号？
+         -目前我们所学习的javaEE版本号是javaEE5
+         -JAVAEE规范是一个比较大的规范，JAVAEE规范中包括13个子规范（每个子规范下其实还有其他的子规范）
+         -JAVAEE5规范下的子规范：
+                   *Servlet2.5
+                   *JDBC 
+                  .....
+         -JAVAEE6规范下的子规范：
+                   *Servlet3.0
+                   *JDBC(因为太常用了，就放到了SE中)
+                   ....
+
+         -Tomcat服务器，其中Tomcat6实现了servlet2.5规范，tomcat7实现了Servlet3.0规范
+    
+
+6、JAVAEE的源码、字节码、帮助文档在哪里？
+   
+ 

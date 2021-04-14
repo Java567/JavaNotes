@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>系统管理中心</title>
+    <meta charset="UTF-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/axios.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/checkIsLogin.js"></script>
+    <style>
+        #app {
+            display: flex;
+            flex-direction: column;
+            font-size: 13px;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            height: 60px;
+            background-image: linear-gradient(to right, #FFFFFF, #4078C3);
+            /*background-color: #4078C3;*/
+        }
+
+        /*logo信息*/
+        .top .logo {
+            height: 40px;
+            line-height: 40px;
+            margin: 10px 50px;
+            background-image: url("css/img/logo.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        /*公司信息*/
+        .top .company {
+            margin-left: 150px;
+            line-height: 40px;
+            font-size: 23px;
+            font-weight: bold;
+            font-family: 黑体;
+        }
+
+        /*用户信息*/
+        .top .user_infos {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-right: 30px;
+            height: 60px;
+            line-height: 60px;
+            color: #FFFFFF;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .top .user_infos a {
+            margin-left: 20px;
+            width: 60px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            background-image: linear-gradient(to right, #CBCBCB, #BBCFEA);
+            border-radius: 3px;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .top .user_infos a:hover {
+            background-image: linear-gradient(to right, #BBCFEA, #FFFFFF);
+        }
+
+        .box {
+            display: flex;
+            background-color: #FFFFFF;
+        }
+
+        .box .left {
+            width: 230px;
+            padding: 0px;
+            background-color: #BBCFEA
+        }
+
+        .nav-item {
+            width: 100%;
+            padding: 0px;
+            border-radius: 8px;
+        }
+
+        .nav-item .category {
+            width: 100%;
+            color: #2e3133;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 3px 0 3px 10px;
+            background-color: rgba(64, 120, 195, 0.3);
+        }
+
+        .nav-item ul {
+            margin: 0;
+            padding: 0;
+            background-color: #E5E4E9;
+        }
+
+        .nav-item ul li {
+            list-style: none;
+            padding: 3px 0 3px 30px;
+            border: #CBCBCB dotted 1px;
+            border-width: 0px 0 1px 0px;
+            cursor: pointer;
+        }
+
+        .nav-item ul li a {
+            text-decoration: none;
+        }
+
+        .nav-item li:hover {
+            background-image: linear-gradient(to right, #E5E4E9, #FFFFFF);
+        }
+
+        .a-hover {
+            background-color: #f9f9f9;
+        }
+
+        .box .right {
+            width: 100%;
+            padding: 5px 20px 0px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .box .right .right_nav {
+            background-image: url("css/img/home.jpg");
+            background-repeat: no-repeat;
+            background-size: contain;
+            font-weight: bold;
+            margin-left: 8px;
+            padding-left: 30px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--顶部-->
+    <div class="top">
+        <div class="logo">
+            <div class="company">宜简社区连锁便利店管理后台系统</div>
+        </div>
+        <div class="user_infos">
+            <div>您好，{{username}}！您的角色：{{auth}}</div>
+            <a href="javascript:;" onclick="Auth.logout()"> 退出 </a>
+        </div>
+    </div>
+
+    <div :style="{height:boxHeight+'px'}" class="box">
+        <!--左边菜单-->
+        <div class="left">
+            <h6 style="margin: 15px">系统导航</h6>
+
+            <div class="nav-item" v-for="item in menuList" v-if="item.pid==null">
+                <div class="category">{{item.frontendMenuName}}</div>
+                <ul>
+                    <li :class="currentPage.id === menuItem.frontendMenuId? 'a-hover':''" v-for="menuItem in menuList"
+                        v-if="menuItem.pid === item.frontendMenuId">
+                        <a :href="menuItem.frontendMenuUrl" @click="setCurrentPage(menuItem)"
+                           target="rightBox">{{menuItem.frontendMenuName}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--内容-->
+        <div class="right">
+            <div class="right_nav">{{currentPage.name}}</div>
+            <iframe :src="currentPage.path" :style="{height: (boxHeight-30)+'px'}"
+                    frameborder="0"
+                    id="rightBox"
+                    name="rightBox"
+                    scrolling="true"
+                    width="100%"></iframe>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    let vue = new Vue({
+        el: "#app",
+        data: {
+            pageId:"pageId",
+            boxHeight: 0,
+            //账号和权限信息
+            username: global_username,
+            auth: global_authArr,
+            //菜单列表
+            menuList: [],
+            //当前被点中的菜单对应的页面
+            currentPage: {
+                id:0,
+                name : "后台首页" ,
+                path: "home.html"
+            }
+        },
+        created() {
+            this.init();
+        },
+        methods: {
+
+            init() {
+                //计算并获得右侧页面高度
+                this.getBoxHeight();
+                //显示菜单树
+                this.menuList = Auth.getMenus();
+                //初始进入页面
+                this.setCurrentPage();
+            },
+
+            getBoxHeight() {
+                let clientHeight = document.documentElement.clientHeight;
+                this.boxHeight = clientHeight - 60;
+            },
+
+            /**
+             * 设置当前页信息
+             * @param item
+             */
+            setCurrentPage(item) {
+                if(!item) {
+                    console.log("在init中调用==>>>",item);
+                    //页面刷新时,在init中调用
+                    //获取地址栏
+                    let pageId =  this.getUrlParam(this.pageId);
+                    //如果地址栏有PageId有值，从菜单树中找name、path
+                    if(pageId){
+                        let findMenu = this.menuList.find(item => item.frontendMenuId === pageId);
+                        //如果能找到
+                        if(findMenu) {
+                            //设置的页面信息
+                            this._setCurrentPage(findMenu.frontendMenuId,findMenu.frontendMenuName,findMenu.frontendMenuUrl);
+                        }
+                    }
+                }else{
+                    //从菜单上点击事件--设置
+                    console.log("从菜单上点击事件==>>>",item);
+                    this._setCurrentPage(item.frontendMenuId,item.frontendMenuName,item.frontendMenuUrl);
+                    //设置加载当URL参数
+                    this.setUrlParam(this.pageId, item.frontendMenuId);
+                }
+            },
+
+            _setCurrentPage(id,name,url){
+                this.currentPage.id = id;
+                this.currentPage.name = name;
+                this.currentPage.path = url;
+            },
+
+
+            /**
+             * 设置URL参数
+             * @param paramName
+             * @param value
+             */
+            setUrlParam(name, value) {
+                let url = new URL(window.location.href);
+                //console.log("set url===>",url);
+                //如果还没有参数，追加参数
+                if(!this.getUrlParam(name)){
+                    url.searchParams.append(name,value);
+                }else {
+                    //如果有这个参数，修改这个参数
+                    url.searchParams.set(name,value);
+                }
+                console.log("设置后的菜单-》",url.href);
+                //更改URL上的地址，但不刷新页面。防止之后刷新页面跳回首页
+                history.pushState({}, null, url.href);
+            },
+
+            /**
+             * 返回URL参数
+             * @returns {Object}
+             */
+            getUrlParam(paramName) {
+                //从?后取数据
+                let query = window.location.search.substring(1);
+                //用&分割，放入数组
+                let varArr = query.split("&");
+                //查找，有就直接返回
+                let findVal = varArr.find(item=> item.split("=")[0] === paramName);
+
+                return findVal? findVal.split("=")[1].trim(): false;
+            }
+        }
+    });
+</script>
+</body>
+</html>

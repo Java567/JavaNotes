@@ -1,0 +1,96 @@
+Linux 内核 具备 图灵完备
+    Ubuntu CentOS RedHat
+
+windows NT --> Windows内核
+
+Ubuntu 大家，社区产物，一个月一个版本，6个月一个稳定版  LTS
+        全球顶尖黑客  
+		 
+		  
+CentOS 有公司背景，稳定，更新非常缓慢
+
+
+
+Linux Server Ubuntu Server 不安装桌面，命令行工具,有不同的版本Gonme
+             Windows Server 可选，可以选择不安装桌面,powerShell
+			 
+			 
+			 运维
+			    桌面运维  网管
+				服务器运维 Linux 系统安装，windows系统安装
+				           服务器软件
+						   
+			    安全运维：网络安全工程师
+				
+				
+				
+Linux 超级管理员root ,自己ubuntu1
+
+LVM 技术 磁盘扩容技术
+
+
+1.服务器放在机房
+2.服务器需要被托管
+
+连接
+     服务端
+	     创建监听端口
+	 客户端
+         请求服务端的监听端口
+
+免密登录
+    客户端创建一对密钥
+          公钥  私钥
+
+etc     配置文件目录
+usr/local   我们自己安装的程序必须放置在这个目录
+var  存放数据库的目录
+
+
+控制台（进程）
+        每一个应用程序最少需要一个线程
+		
+主线程  同步执行
+工作线程  异步执行
+
+交换空间
+   内存 1GB 超过 内存溢出   阻塞  崩溃  宕机
+   磁盘 1GB swap 交换空间 一旦使用磁盘  系统性能 大幅下降
+   
+   重要 top ps du df free kill
+		  
+		  
+		  
+		  apt 软件包管理程序 ubuntu下软件包管理是通过 apt这个程序管理的
+		  
+		  
+		  centos yum 软件包管理程序
+		  
+		  
+		  安装文件
+		      安装版
+			       安装这个功能也是一个应用程序，类似与打包
+				   .exe
+			  绿色版  压缩包
+			  
+			  
+deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+	 
+
+
+    r 只读
+    w 可写
+    x 可执行
+	- 表示无此权限
+    #连接数
+	
+	
+	
+	192.168.19.129
+	
+	
+	
+	grant all privileges on *.* to 'root'@'%' identified by '123456';

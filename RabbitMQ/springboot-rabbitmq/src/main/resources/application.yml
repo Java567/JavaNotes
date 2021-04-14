@@ -1,0 +1,17 @@
+spring:
+  rabbitmq:
+    host: 192.168.190.130
+    port: 5672
+    username: test
+    password: test
+    virtual-host: /test
+    listener:
+      simple:
+        acknowledge-mode: manual
+    publisher-confirm-type: simple
+    publisher-returns: true
+
+  redis:
+    host: 39.100.38.230
+    port: 6379
+

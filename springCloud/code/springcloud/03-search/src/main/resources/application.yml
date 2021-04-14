@@ -1,0 +1,14 @@
+# 指定Eureka服务地址
+eureka:
+  client:
+    service_url:
+      defaultZone: http://root:root@localhost:8761/eureka,http://root:root@localhost:8762/eureka
+
+# 指定服务的名称
+spring:
+  application:
+    name: SEARCH
+
+
+server:
+  port: 8081
