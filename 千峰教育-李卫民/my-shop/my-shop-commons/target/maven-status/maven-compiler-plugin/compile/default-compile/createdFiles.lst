@@ -1,0 +1,3 @@
+com\mage\my\shop\commons\constant\ConstantUtils.class
+com\mage\my\shop\commons\utils\RegexpUtils.class
+com\mage\my\shop\commons\dto\BaseResult.class

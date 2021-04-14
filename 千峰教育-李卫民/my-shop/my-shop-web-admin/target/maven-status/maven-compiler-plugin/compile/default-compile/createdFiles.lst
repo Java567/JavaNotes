@@ -1,0 +1,8 @@
+com\mage\my\shop\web\admin\web\controller\LoginController.class
+com\mage\my\shop\web\admin\dao\TbUserDao.class
+com\mage\my\shop\web\admin\web\interceptor\LoginInterceptor.class
+com\mage\my\shop\web\admin\web\controller\MainController.class
+com\mage\my\shop\web\admin\service\impl\TbUserServiceImpl.class
+com\mage\my\shop\web\admin\web\controller\UserController.class
+com\mage\my\shop\web\admin\service\TbUserService.class
+com\mage\my\shop\web\admin\web\interceptor\PermissionInterceptor.class

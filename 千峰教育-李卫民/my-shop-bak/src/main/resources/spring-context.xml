@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="springContext" class="com.mage.my.shop.commons.context.SpringContext"/>
+
+
+
+    <!--DAO-->
+    <bean id="userDao" class="com.mage.my.shop.dao.impl.UserDaoImpl"/>
+
+    <!--Service-->
+    <bean id="userService" class="com.mage.my.shop.service.impl.UserServiceImpl"/>
+
+
+
+</beans>

@@ -1,0 +1,135 @@
+Spring: 
+
+Spring 是为了解决企业级开发的复杂度问题。实际上就是解决耦合度问题
+
+系统开发过程中，存在两种业务
+    1、主业务逻辑
+	     银行业务
+		 保险业务
+		 电商业务
+		 物流业务
+	2、系统级业务逻辑或者叫做交叉业务逻辑。
+	     JDBC连接数据库
+		     1、加载驱动
+			 2、创建连接
+			 3、开启事务
+			 4、SQL操作 具体业务
+			 5、提交事务
+			 6、释放连接
+			 
+UserService userService =new UserServiceImpl();
+交给Spring容器创建
+Spring 胶水框架
+
+ORM
+    Mybaits
+	Hibernate 淘汰了
+	BeetlSQL（非主流框架）
+	
+	
+	项目A
+	    header
+	项目B
+	    section
+	项目C
+	    footer
+		
+		Protlet 由Portlet完成组件的拼接
+	
+	header
+	section
+	footer
+	
+	
+什么是测试
+ 
+TDD 测试驱动编程，编程方法学，编程思想
+
+        源码里编码，CRUD
+   
+        先写测试用例，再编码
+
+        User
+            save
+            del
+            edit
+            select
+
+        UserService 
+ 
+        UserServiceTest
+            save
+                方法体,内容空，直接是成功的
+            del
+            edit
+            select			
+	
+TDD有好有坏
+    好：保证代码质量，测试的覆盖率高
+	坏：开发效率低
+	
+
+DDD 领域驱动设计
+
+测试本身也是一套完整学科
+
+单元测试
+    白盒测试  能看到完整代码的
+	黑盒测试（功能测试）  没有源码的
+	灰盒测试  
+
+压力测试
+    并发数的问题，能承载多少并发
+
+疲劳强度测试
+    长期稳定运行，72小时
+
+冒烟测试
+    对一个功能点疯狂测试(对主要流程做测试)	
+	
+集成测试：
+    完整功能的测试，最重要的是测试 整体业务流程
+		
+回归测试：
+    增加一个功能
+	
+	
+自动化测试：
+    编码、场景设计
+	
+	
+断言
+    我确定怎么怎么样
+	      下雨了  true
+		  没下   false
+		  
+		  user save
+		       一定会成功 true
+			   
+			   地址引用
+			   值引用
+			   
+			   
+			   String a="a";
+			   String b="b";
+			   
+			   ==    比较的是地址
+			   equls 比较的是值
+			   
+			   
+			   
+1. 开发工具，Eclipse->IDEA
+2.项目构建方式，项目的管理方式，Maven 第三方jar的管理
+3.学习了基础架构知识，三层架构+MVC
+4.学习了前端框架 BootStrap 
+5.第一个重要的框架，最重要 Spring
+6.Junit 测试框架，Log4j 日志框架
+
+系统已经具备基本的完整性
+
+my-shop 
+
+后台系统
+
+1.创建一个文件名字叫 my-shop
+2.创建 pom.xml

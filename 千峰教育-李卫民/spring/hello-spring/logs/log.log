@@ -1,0 +1,24 @@
+2020-08-05 15:38:25,511 INFO [org.springframework.context.support.ClassPathXmlApplicationContext] - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41975e01: startup date [Wed Aug 05 15:38:25 CST 2020]; root of context hierarchy
+2020-08-05 15:38:25,619 INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from class path resource [spring-context.xml]
+2020-08-05 15:38:25,876 INFO [com.mage.hello.spring.MyTest] - info 级别的日志
+2020-08-05 15:38:25,876 WARN [com.mage.hello.spring.MyTest] - warn 级别的日志
+2020-08-05 15:38:25,876 ERROR [com.mage.hello.spring.MyTest] - error 级别的日志
+2020-08-05 15:38:25,877 INFO [com.mage.hello.spring.MyTest] - message is : 测试 测试2
+2020-08-05 15:42:58,012 INFO [org.springframework.context.support.ClassPathXmlApplicationContext] - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41975e01: startup date [Wed Aug 05 15:42:58 CST 2020]; root of context hierarchy
+2020-08-05 15:42:58,078 INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from class path resource [spring-context.xml]
+2020-08-05 15:42:58,242 INFO [com.mage.hello.spring.MyTest] - info 级别的日志
+2020-08-05 15:42:58,242 WARN [com.mage.hello.spring.MyTest] - warn 级别的日志
+2020-08-05 15:42:58,242 ERROR [com.mage.hello.spring.MyTest] - error 级别的日志
+2020-08-05 15:42:58,243 INFO [com.mage.hello.spring.MyTest] - message is : 测试 测试2
+2020-08-05 15:43:14,084 INFO [org.springframework.context.support.ClassPathXmlApplicationContext] - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41975e01: startup date [Wed Aug 05 15:43:14 CST 2020]; root of context hierarchy
+2020-08-05 15:43:14,140 INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from class path resource [spring-context.xml]
+2020-08-05 15:43:14,288 INFO [com.mage.hello.spring.MyTest] - info 级别的日志
+2020-08-05 15:43:14,288 WARN [com.mage.hello.spring.MyTest] - warn 级别的日志
+2020-08-05 15:43:14,288 ERROR [com.mage.hello.spring.MyTest] - error 级别的日志
+2020-08-05 15:43:14,289 INFO [com.mage.hello.spring.MyTest] - message is : 测试 测试2
+2020-08-05 15:44:13,573 INFO [org.springframework.context.support.ClassPathXmlApplicationContext] - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@41975e01: startup date [Wed Aug 05 15:44:13 CST 2020]; root of context hierarchy
+2020-08-05 15:44:13,644 INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from class path resource [spring-context.xml]
+2020-08-05 15:44:13,868 INFO [com.mage.hello.spring.MyTest] - info 级别的日志
+2020-08-05 15:44:13,868 WARN [com.mage.hello.spring.MyTest] - warn 级别的日志
+2020-08-05 15:44:13,868 ERROR [com.mage.hello.spring.MyTest] - error 级别的日志
+2020-08-05 15:44:13,870 INFO [com.mage.hello.spring.MyTest] - message is : 测试 测试2
